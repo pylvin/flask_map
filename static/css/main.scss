@@ -1,0 +1,73 @@
+.crdnts{
+  position: absolute;
+  z-index: 1000;
+  top: 30%;
+  right: 5%;
+  input{
+    display: block;
+    margin-bottom: 5px !important;
+  }
+}
+.new-section{
+  padding: 15px 0 !important;
+  position: relative;
+  form{
+    width: 50%;
+    margin: 0 auto;
+    label{
+      text-align: right;
+    }
+    button{
+      display: block;
+      margin: 0 auto;
+      margin-top: 15px;
+    }
+    #copy{
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      color: #ffffff;
+      @media screen and (max-width: 992px)  {
+        position: unset;
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+    }
+  }
+  .all{
+    text-align: center;
+    display: block;
+    width: 15%;
+    margin: 0 auto;
+  }
+}
+
+.items-section{
+  padding: 15px 0 !important;
+  .item{
+    cursor: pointer;
+  }
+  .active{
+    background-color: #a8bbde !important;
+  }
+  nav{
+    margin: 0 auto;
+  }
+  .add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+  }
+}
+
+//Flashes
+.flashes{
+  margin:  0 auto;
+  padding: 10px;
+  text-align: center;
+  li{
+    list-style: none;
+  }
+}

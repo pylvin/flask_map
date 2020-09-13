@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{#<div class="form-group">#}
+{#                        <label for="new_id">Id</label>#}
+{#                        <input type="number" name="new_id" class="form-control" id="new_id" placeholder="Enter id">#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="new_name">Name geolocation</label>#}
+{#                        <input type="text" name="new_name" class="form-control" id="new_name" placeholder="Enter name">#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="new_lng">Longtitude</label>#}
+{#                        <input  type="number" step="0.0000000000000001" name="new_lng" class="form-control" id="new_lng" placeholder="Enter longtitude">#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="new_lat">Latitude</label>#}
+{#                        <input type="number" step="0.00000000000000001" name="new_lat" class="form-control" id="new_lat" placeholder="Enter latitude">#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="new_hg1">Hashtag 1</label>#}
+{#                        <input type="text" name="new_hg1" class="form-control" id="new_hg1" placeholder="Enter Hashtag1">#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="new_hg2">Hashtag 2</label>#}
+{#                        <input type="text" name="new_hg2" class="form-control" id="new_hg2" placeholder="Enter Hashtag2">#}
+{#                    </div>#}
+{#                    <button type="submit" class="btn btn-secondary">Save</button>#}
+{#                    <a class="btn btn-secondary" id="copy">Copy from map</a>#}
+
+{% block body %}
+    <div class="new-section">
+        <div class="container">
+            <a href="{{ url_for('items') }}" class="btn btn-primary all">All</a>
+            <div class="row">
+                <form action="/" method="POST">
+                    {{ form.csrf_token }}
+                    <div class="form-group">
+                        {{ form.id.label }}
+                        {{ form.id(class_="form-control",id=form.id.id,type="number")}}
+                    </div>
+                    <div class="form-group">
+                        {{ form.name_geolocation.label }}
+                        {{ form.name_geolocation(class_="form-control",id=form.name_geolocation.id,type="text")}}
+                    </div>
+                    <div class="form-group">
+                        {{ form.longtitude.label }}
+                        {{ form.longtitude(class_="form-control",id=form.longtitude.id,type="number",step="0.00000000000000001")}}
+                    </div>
+                    <div class="form-group">
+                        {{ form.latitude.label }}
+                        {{ form.latitude(class_="form-control",id=form.latitude.id,type="number",step="0.00000000000000001")}}
+                    </div>
+                    <div class="form-group">
+                        {{ form.hashtag1.label }}
+                        {{ form.hashtag1(class_="form-control",id=form.hashtag1.id,type="text")}}
+                    </div>
+                    <div class="form-group">
+                        {{ form.hashtag2.label }}
+                        {{ form.hashtag2(class_="form-control",id=form.hashtag2.id,type="text")}}
+                    </div>
+                    {% for field in form.errors %}
+                        {% for error in form.errors[field] %}
+                            <div class="alert alert-error">
+                                <strong>Error! {{ field }}</strong> {{error}}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    <button type="submit" class="btn btn-secondary">Save</button>
+                    <a class="btn btn-secondary" id="copy">Copy from map</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

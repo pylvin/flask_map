@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="items-section">
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class=flashes>
+                        {% for category, message in messages %}
+                            <li class="text-{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name geolocation</th>
+                        <th scope="col">longtitude</th>
+                        <th scope="col">latitude</th>
+                        <th scope="col">hashtag1</th>
+                        <th scope="col">hashtag2</th>
+                        <th scope="col">delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in items %}
+                        <tr class="item" data-id="{{ i.id }}">
+                            <th scope="row"><a href="{{ url_for("update",id=i.id ) }}">{{ i.id }}</a></th>
+                            <td>{{ i.name_geolocation }}</td>
+                            <td>{{ i.longtitude }}</td>
+                            <td>{{ i.latitude }}</td>
+                            <td>{{ i.hashtag1 }}</td>
+                            <td>{{ i.hashtag2 }}</td>
+                            <td><button type="button" data-id="{{ i.id }}" class="btn btn-danger delete">delete</button></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ request.args.get('page') | int - 1 }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        {% for i in counter(current_page,pages_count) %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endfor %}
+                        {% if has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ request.args.get('page') | int + 1 }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                <a href="{{ url_for("index") }}" class="btn btn-primary add">Add New</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

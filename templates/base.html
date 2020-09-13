@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1" />
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="{{ url_for("static",filename="js/jquery-3.5.1.slim.min.js") }}"></script>
+    <script src="{{ url_for("static",filename="js/popper.min.js") }}"></script>
+    <script src="{{ url_for("static",filename="js/bootstrap.min.js") }}"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=f0ee25b4-cd48-4b26-9fe4-1e33cf28ff05
+&lang=ru_RU"
+            type="text/javascript">
+    </script>
+</head>
+<body>
+<div id="map" style="height: 400px;position: relative;">
+    <div class="crdnts">
+        <div class="form-group">
+            <label for="lng">Longtitude</label>
+            <input class="form-control" type="text" id="lng">
+        </div>
+
+        <div class="form-group">
+            <label for="lat">Latitude</label>
+            <input class="form-control" type="text" id="lat">
+        </div>
+    </div>
+</div>
+{% block body %}
+
+{% endblock %}
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModallLongTitle">Удалить</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Вы уверены что хотите удалить данную запись?
+            </div>
+            <div class="modal-footer">
+                <form id="deleteForm" action="" method="POST">
+                    {{ csrf_token }}
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+                    <button type="submit" class="btn btn-success">Да</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="{{ url_for('static',filename='js/map.js') }}"></script>
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+</html>

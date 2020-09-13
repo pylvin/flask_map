@@ -1,0 +1,60 @@
+.crdnts {
+  position: absolute;
+  z-index: 1000;
+  top: 30%;
+  right: 5%; }
+  .crdnts input {
+    display: block;
+    margin-bottom: 5px !important; }
+
+.new-section {
+  padding: 15px 0 !important;
+  position: relative; }
+  .new-section form {
+    width: 50%;
+    margin: 0 auto; }
+    .new-section form label {
+      text-align: right; }
+    .new-section form button {
+      display: block;
+      margin: 0 auto;
+      margin-top: 15px; }
+    .new-section form #copy {
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      color: #ffffff; }
+      @media screen and (max-width: 992px) {
+        .new-section form #copy {
+          position: unset;
+          display: block;
+          margin: 0 auto;
+          margin-top: 10px; } }
+  .new-section .all {
+    text-align: center;
+    display: block;
+    width: 15%;
+    margin: 0 auto; }
+
+.items-section {
+  padding: 15px 0 !important; }
+  .items-section .item {
+    cursor: pointer; }
+  .items-section .active {
+    background-color: #a8bbde !important; }
+  .items-section nav {
+    margin: 0 auto; }
+  .items-section .add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px; }
+
+.flashes {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center; }
+  .flashes li {
+    list-style: none; }
+
+/*# sourceMappingURL=main.css.map */
